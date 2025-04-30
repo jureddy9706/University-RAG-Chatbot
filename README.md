@@ -1,70 +1,92 @@
 # UNH Chatbot – AI Assistant for University of New Haven
 
-This project is a production-grade, GPU-accelerated **RAG (Retrieval-Augmented Generation) chatbot** built to answer questions related to the University of New Haven. It uses a combination of **ChromaDB**, **Ollama LLM**, **Hugging Face embeddings**, and **Airflow** for automation.
+![Status](https://img.shields.io/badge/status-production-green)
+![Python](https://img.shields.io/badge/python-3.10+-blue)
+![License](https://img.shields.io/badge/license-MIT-blue)
+
+This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RAG) chatbot** that answers queries about the University of New Haven using scraped web data. It uses **ChromaDB**, **Ollama LLM**, and **Apache Airflow** for automation, with deployment on **AWS EC2 (GPU)**.
 
 ---
 
 ## 🚀 Features
 
-- 🔍 Scrapes and filters university content via sitemap XML
-- 🧠 Vector-based document retrieval using ChromaDB
-- 💬 Natural language answers using Ollama Mistral 7B (on GPU)
-- 📊 Auto-chunking of content with overlap for semantic accuracy
-- 📅 Monthly data refresh using Apache Airflow DAGs
-- 🔧 Parameterized automation: update URL, model, chunk size dynamically
+- 🔍 Scrapes university content using sitemap filtering
+- 🧠 Embeds documents into ChromaDB with `all-MiniLM-L6-v2`
+- 💬 Uses **Ollama Mistral 7B** (LLM) for fast, high-quality answers
+- 🧩 Chunked input for semantic search (chunk size = 500, overlap = 100)
+- ⚙️ Airflow DAG automates monthly refresh of documents
+- 🎛️ Configurable via `config.yaml` (no code changes needed)
 
 ---
 
 ## 🧠 Tech Stack
 
-- **Language Model**: [Ollama Mistral 7B](https://ollama.com/library/mistral)
-- **Embedding Model**: `all-MiniLM-L6-v2` from Hugging Face
+- **LLM**: [Ollama Mistral 7B](https://ollama.com/library/mistral)
+- **Embeddings**: Hugging Face `all-MiniLM-L6-v2`
 - **Vector Store**: ChromaDB
+- **Web API**: FastAPI
 - **Scheduler**: Apache Airflow
-- **Web Server**: FastAPI
-- **Cloud**: AWS EC2 (Ubuntu with GPU)
+- **Deployment**: AWS EC2 with GPU (Ubuntu)
+- **Frontend**: HTML/CSS/JS with Bootstrap
 
 ---
 
 ## 📁 Project Structure
-UNH_CHATBOT/ ├── app/ # Core chatbot logic and processing │ ├── chatbot_api.py │ ├── embed_documents.py │ ├── evaluate_metrics.py │ ├── scrape_website.py │ └── ... ├── airflow/ # Airflow DAGs for automation │ └── college_rag_update_dag.py ├── cleaned_texts/ # Cleaned HTML/text from sitemap ├── chroma_db/ # Vector DB (excluded from Git) ├── templates/ # Frontend templates (HTML) ├── static/ # CSS / assets ├── logs/ # App and pipeline logs ├── .gitignore └── README.md
 
+UNH_CHATBOT/
+├── app/                     # Core chatbot logic and processing
+│   ├── chatbot_api.py
+│   ├── embed_documents.py
+│   ├── evaluate_metrics.py
+│   ├── scrape_website.py
+│   └── ...
+├── airflow/                 # Airflow DAGs for automation
+│   └── college_rag_update_dag.py
+├── cleaned_texts/           # Cleaned HTML/text from sitemap
+├── chroma_db/               # Vector DB (excluded from Git)
+├── templates/               # Frontend templates (HTML)
+├── static/                  # CSS / assets
+├── logs/                    # App and pipeline logs
+├── config.yaml              # Configuration file for parameters
+├── .gitignore
+└── README.md
 
 ---
 
-## 📡 Data Pipeline Summary
+## 📡 Pipeline Summary
 
-1. **Scraping**: Extracts pages from the sitemap URL  
-   - Filters: `admissions`, `tuition fees`, `programs`, `student life`, `housing`, `scholarships`, `alumni`, `jobs`, etc.  
-   - Blocks: `news`, `blogs`, `events`, `newsletter`, etc.
+### 🔄 Data Flow:
 
-2. **Cleaning**: Text is cleaned and stored in `cleaned_texts/`
+1. **Scraping**  
+   Uses sitemap `https://university.edu/sitemap.xml`  
+   Filters: `admissions`, `international`, `tuition fees`, `programs`, `student life`, etc.  
+   Blocks: `blogs`, `newsletters`, `events`, etc.
 
-3. **Embedding**: Text is chunked (size=500, overlap=100), embedded using `all-MiniLM-L6-v2`, and stored in ChromaDB
+2. **Cleaning**  
+   Removes HTML clutter → saves in `cleaned_texts/`
 
-4. **Chatbot Logic**:  
-   - User asks question  
-   - Relevant context retrieved from ChromaDB  
-   - Combined context + question sent to **Ollama Mistral 7B**  
-   - Answer is generated and displayed in under 5 seconds
+3. **Embedding**  
+   Chunks text (size=500, overlap=100) and embeds using SentenceTransformers → stores in ChromaDB
 
-5. **Automation**:  
-   - Airflow DAG (`college_rag_update_dag.py`) runs on the 1st of every month  
-   - DAG can be triggered manually with updated parameters:
-     - Embedding model
-     - Chunk size
-     - LLM model
-     - College sitemap URL
+4. **Chatbot Flow**
+   - User submits query via FastAPI
+   - Retrieves top relevant chunks from ChromaDB
+   - Passes context + query to **Ollama Mistral 7B**
+   - Returns answer in under 5 seconds
+
+5. **Airflow Automation**  
+   DAG scheduled for the 1st of each month to:
+   - Rescrape site
+   - Clean and re-embed data
+   - Use `config.yaml` parameters (LLM model, chunk size, URL)
 
 ---
 
 ## ⚙️ Setup Instructions
 
-1. **Clone the repo**
-   ```bash
-   git clone https://github.com/jureddy9706/UNH_CHATBOT.git
-   cd UNH_CHATBOT
-
-![Status](https://img.shields.io/badge/status-production-green)
-![Python](https://img.shields.io/badge/python-3.10+-blue)
-![License](https://img.shields.io/badge/license-MIT-blue)
+### 1. Clone the repo
+```bash
+git clone https://github.com/jureddy9706/UNH_CHATBOT.git
+cd UNH_CHATBOT
+   2. Install dependencies
+ pip install -r requirements.txt
