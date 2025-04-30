@@ -1,4 +1,4 @@
-# UNH Chatbot – AI Assistant for University of New Haven
+# UNH RAG Chatbot – AI Assistant for University of New Haven
 
 ![Status](https://img.shields.io/badge/status-production-green)
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
@@ -143,3 +143,12 @@ Bot: Vahid Behzadan is an assistant professor who specializes in various fields 
 uvicorn app.chatbot_api:app --host 0.0.0.0 --port 8000
 ```
 6. Access from browser: http://<ec2-public-ip>:8000
+
+## 🔧 Customization
+
+You can build a chatbot for any college by changing just the sitemap URL and parameters in config.yaml. No code changes required!
+
+## 📜 License
+
+MIT License. This project is for academic and educational purposes.
+
