@@ -86,8 +86,28 @@ UNH_CHATBOT/
 
 ### 1. Clone the repo
 ```bash
-git clone https://github.com/jureddy9706/UNH_CHATBOT.git
-cd UNH_CHATBOT
+git clone
+1. https://github.com/jureddy9706/UNH_CHATBOT.git
+cd UNH_CHATBOT 
+```
 
-   2. Install dependencies
- pip install -r requirements.txt
+2. Install dependencies
+```bash
+pip install -r requirements.txt
+```
+3. Update config
+Edit config.yaml to your desired setup:
+
+```bash
+model_name: "mistral"
+embedding_model: "all-MiniLM-L6-v2"
+chunk_size: 500
+overlap: 100
+sitemap_url: "https://university.edu/sitemap.xml"
+```
+
+4. Run chatbot locally
+```bash
+uvicorn app.chatbot_api:app --reload
+```
+
