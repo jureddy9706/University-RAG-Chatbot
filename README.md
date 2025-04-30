@@ -117,15 +117,19 @@ airflow standalone
 ## 🧪 Example Chatbot Demo
 
 User: Who is Sula?
+
 Bot: Ardiana Sula is a recognized scholar and researcher with degrees from Harvard University Business School, University Polytechnic of Tirana, Fukuoka Institute of Technology, and Drexel University. She is a legislative intern with the Anti-Defamation League and focuses her research on emerging technologies and practices in real-time video classroom formats, educational designs, and globalized virtual
 
 User: who is aminul?
+
 Bot: Muhammad Aminul Islam is an Assistant Professor with the Department of Electrical and Computer Engineering and Computer Science at the University of New Haven, Connecticut, USA. His research interests include deep learning, computer vision, information fusion, autonomous driving, and remote sensing.
 
 User: vahis?
+
 Bot: Based on the provided context, 'vahis' is not mentioned. It seems there might be a typo or error in the question. If you meant 'Vahid Behzadan', that is the name of the assistant professor who was quoted in several media articles regarding cybersecurity, Al, and computers, as well as demand for laptops and tablets during the pandemic, and concerns about emails being written by an artificial intelligence
 
 User: vahid?
+
 Bot: Vahid Behzadan is an assistant professor who specializes in various fields including electrical and computer engineering, computer science, cybersecurity, networks, data science. He has directed the Secure and Assured Intelligent Learning (SAIL) Lab and has commented on issues related to Venmo app security, increase in cyber-attacks during the Coronavirus lockdown, ransomware, Zoom security risks for the Department of Defense, cybersecurity, Al, cryptocurrency origins, computer hacking, the recent targets and frequency of ransomware attacks, and possible security issues for users of Amazon Sidewalk.
 
 ## ☁️ EC2 Deployment (Optional)
