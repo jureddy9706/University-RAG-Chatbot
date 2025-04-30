@@ -85,17 +85,17 @@ UNH_CHATBOT/
 ## ⚙️ Setup Instructions
 
 ### 1. Clone the repo
-```bash
 git clone
-1. https://github.com/jureddy9706/UNH_CHATBOT.git
+```bash
+ https://github.com/jureddy9706/UNH_CHATBOT.git
 cd UNH_CHATBOT 
 ```
 
-2. Install dependencies
+### 2. Install dependencies
 ```bash
 pip install -r requirements.txt
 ```
-3. Update config
+### 3. Update config
 Edit config.yaml to your desired setup:
 
 ```bash
@@ -106,7 +106,7 @@ overlap: 100
 sitemap_url: "https://university.edu/sitemap.xml"
 ```
 
-4. Run chatbot locally
+### 4. Run chatbot locally
 ```bash
 uvicorn app.chatbot_api:app --reload
 ```
