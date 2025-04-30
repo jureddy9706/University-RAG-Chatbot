@@ -88,5 +88,6 @@ UNH_CHATBOT/
 ```bash
 git clone https://github.com/jureddy9706/UNH_CHATBOT.git
 cd UNH_CHATBOT
+
    2. Install dependencies
  pip install -r requirements.txt
