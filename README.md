@@ -110,4 +110,8 @@ sitemap_url: "https://university.edu/sitemap.xml"
 ```bash
 uvicorn app.chatbot_api:app --reload
 ```
+### 5. Launch Airflow
+```bash
+airflow standalone
+```
 
