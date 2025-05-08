@@ -11,11 +11,17 @@ This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RA
 ## 🚀 Features
 
 - 🔍 Scrapes university content using sitemap filtering
-- 🧠 Embeds documents into ChromaDB with `all-MiniLM-L6-v2`
+- 🧠 Embeds documents into ChromaDB with `all-MiniLM-L6-v2` 
+- 💬Interactive Chat Interface – Simple and user-friendly web-based chatbot
+- 🔍Vector Search with ChromaDB – Efficient information retrieval for precise answers
 - 💬 Uses **Ollama Mistral 7B** (LLM) for fast, high-quality answers
 - 🧩 Chunked input for semantic search (chunk size = 500, overlap = 100)
 - ⚙️ Airflow DAG automates monthly refresh of documents
 - 🎛️ Configurable via `config.yaml` (no code changes needed)
+- 🔴Real-time Updates – Continuously learns from newly extracted data
+- ☁️Deployment Ready – Can be hosted on cloud platforms
+
+
 
 ---
 
