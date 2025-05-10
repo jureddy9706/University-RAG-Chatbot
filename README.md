@@ -40,7 +40,24 @@ This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RA
 ## 📁 Project Structure
 
 
-<pre lang="markdown"> 📁 Project Structure ```text UNH_CHATBOT/ ├── app/ # Core chatbot logic and processing │ ├── chatbot_api.py │ ├── embed_documents.py │ ├── evaluate_metrics.py │ ├── scrape_website.py │ └── ... ├── airflow/ # Airflow DAGs for automation │ └── college_rag_update_dag.py ├── cleaned_texts/ # Cleaned HTML/text from sitemap ├── chroma_db/ # Vector DB (excluded from Git) ├── templates/ # Frontend templates (HTML) ├── static/ # CSS / assets ├── logs/ # App and pipeline logs ├── config.yaml # Configuration file for parameters ├── .gitignore └── README.md ``` </pre>
+MSDS_COORDINATOR_CHATBOT/
+├── app/                     # Core chatbot logic
+│   ├── chatbot_api.py
+│   ├── embed_documents.py
+│   ├── evaluate_metrics.py
+│   ├── scrape_website.py
+│   └── ...
+├── airflow/                 # Airflow DAGs for automation
+│   └── college_rag_update_dag.py
+├── cleaned_texts/           # Cleaned HTML/text from sitemap
+├── chroma_db/               # Vector DB (excluded from Git)
+├── templates/               # Frontend templates (HTML)
+├── static/                  # CSS / assets
+├── logs/                    # App and pipeline logs
+├── config.yaml              # Configuration file for parameters
+├── .gitignore
+└── README.md
+
 
 ---
 
