@@ -41,9 +41,13 @@ This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RA
 
 
 UNH_CHATBOT/
-├── app/                     # Core chatbot logic and processing
+
+├── app/  # Core chatbot logic and processing
+
 │   ├── chatbot_api.py
+
 │   ├── embed_documents.py
+
 │   ├── evaluate_metrics.py
 │   ├── scrape_website.py
 │   └── ...
