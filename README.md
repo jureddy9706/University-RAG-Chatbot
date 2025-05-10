@@ -39,6 +39,7 @@ This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RA
 
 ## 📁 Project Structure
 
+
 UNH_CHATBOT/
 ├── app/                     # Core chatbot logic and processing
 │   ├── chatbot_api.py
@@ -101,7 +102,8 @@ cd UNH_CHATBOT
 ```bash
 pip install -r requirements.txt
 ```
-### 3. Update config
+### 3. Update config(optional)
+If you're not using Airflow yet, you can directly edit config.yaml
 Edit config.yaml to your desired setup:
 
 ```bash
@@ -116,7 +118,7 @@ sitemap_url: "https://university.edu/sitemap.xml"
 ```bash
 uvicorn app.chatbot_api:app --reload
 ```
-### 5. Launch Airflow
+### 5. Launch Airflow in a different terminal
 ```bash
 airflow standalone
 ```
@@ -152,7 +154,7 @@ uvicorn app.chatbot_api:app --host 0.0.0.0 --port 8000
 
 ## 🔧 Customization
 
-You can build a chatbot for any college by changing just the sitemap URL and parameters in config.yaml. No code changes required!
+You can build a chatbot for any college by changing just the sitemap URL and parameters in config.yaml or in airflow. No code changes required!
 
 ## 📜 License
 
