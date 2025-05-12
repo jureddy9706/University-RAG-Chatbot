@@ -38,8 +38,6 @@ This is a production-grade, GPU-accelerated **Retrieval-Augmented Generation (RA
 ---
 
 
----
-
 ## 📡 Pipeline Summary
 
 ### 🔄 Data Flow:
