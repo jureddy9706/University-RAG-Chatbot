@@ -1,5 +1,5 @@
-# UNH RAG Chatbot – AI Assistant for University of New Haven  --  Check out our GEN AI Chatbot - http://44.217.147.240:8000
-
+# UNH RAG Chatbot – AI Assistant for University of New Haven  
+# Check out our GEN AI Chatbot - http://44.217.147.240:8000
 ![Status](https://img.shields.io/badge/status-production-green)
 ![Python](https://img.shields.io/badge/python-3.10+-blue)
 ![License](https://img.shields.io/badge/license-MIT-blue)
